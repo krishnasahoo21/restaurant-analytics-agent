@@ -242,12 +242,6 @@ restaurant-analytics-agent/
 
 ## 🧠 What I Learned
 
-Building this project taught me the practical difference between 
-**data science** and **AI engineering:**
-
-- Data scientists ask "what does the data say?"
-- AI engineers build systems that answer that question automatically
-
 Key technical learnings:
 - **Tool use pattern** — how LLMs autonomously decide which functions to call
 - **Agent loop** — the while loop that drives multi-step reasoning
@@ -286,20 +280,8 @@ Key technical learnings:
 
 ## 📄 License
 
-MIT License — see LICENSE file for details.
+Proprietary — © 2026 Apex AI. All rights reserved.
+This project is confidential client work and not 
+licensed for external use or distribution.
 
 ---
-
-## 👤 Author
-
-Built by **Krishna** as a portfolio project demonstrating 
-AI Engineering capabilities — specifically agentic AI with 
-tool use, real-world data engineering, and production UI development.
-
-*Transitioning from Data Science to AI Engineering.*
-
----
-
-> *"I built the agent loop from scratch before using any framework — 
-> because understanding what happens under the hood is what separates 
-> engineers from framework users."*
