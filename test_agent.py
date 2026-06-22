@@ -11,6 +11,7 @@ print("\n" + "═"*60)
 print("  AGENT TEST — with verbose tool logging")
 print("═"*60)
 
+
 # ── Test 1: Simple single-tool question ────────────────────────────────────
 print("\n📌 Q1: Simple KPI question")
 print("─"*60)

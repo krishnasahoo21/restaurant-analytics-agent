@@ -1,0 +1,510 @@
+{
+  "timestamp": "2026-06-19T14:16:21.445003",
+  "summary": {
+    "total": 27,
+    "passed": 27,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "critical_failures": 0,
+    "hallucinations": 0,
+    "health": "\ud83d\udfe2 HEALTHY",
+    "elapsed_seconds": 213.2,
+    "response_quality": {
+      "tests_run": 7,
+      "avg_correctness": 5.0,
+      "avg_completeness": 5.0,
+      "avg_compactness": 4.0,
+      "avg_overall": 5.0
+    }
+  },
+  "results": [
+    {
+      "test_id": "DQ_001",
+      "name": "April net sales accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 291829,
+      "actual": 291829,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_002",
+      "name": "April total orders accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 489,
+      "actual": 489,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_003",
+      "name": "April AOV accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 596.79,
+      "actual": 596.79,
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_004",
+      "name": "March net sales accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 260672,
+      "actual": 260672,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_005",
+      "name": "Top item is Tunday Mutton Galawati 4 Pcs",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Tunday Mutton Galawati Kabab- 4 Pcs",
+      "actual": "Tunday Mutton Galawati Kabab- 4 Pcs",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_006",
+      "name": "April top channel is Zomato",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Zomato",
+      "actual": "Zomato",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_007",
+      "name": "Best day of week is Saturday",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Saturday",
+      "actual": "Saturday",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_008",
+      "name": "Peak hour window is 19-21",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "19:00 \u2013 21:00",
+      "actual": "19:00 \u2013 21:00",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_009",
+      "name": "Paratha is highest material demand",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "paratha",
+      "actual": "paratha",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_010",
+      "name": "Online order platform count",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 4,
+      "actual": 4,
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_001",
+      "name": "Revenue question triggers KPI tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_monthly_kpis"
+      ],
+      "tools_called": [
+        "get_monthly_kpis"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "TS_002",
+      "name": "Channel question triggers channel tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_channels_across_months",
+        "get_channel_performance"
+      ],
+      "tools_called": [
+        "compare_channels_across_months"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_003",
+      "name": "MoM question triggers compare tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_months"
+      ],
+      "tools_called": [
+        "compare_months"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_004",
+      "name": "Top items question triggers menu tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_top_items"
+      ],
+      "tools_called": [
+        "get_top_items"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_005",
+      "name": "Channel strategy triggers multiple tools",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_channels_across_months",
+        "get_channel_performance"
+      ],
+      "tools_called": [
+        "compare_channels_across_months",
+        "get_channel_performance"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_006",
+      "name": "Procurement question triggers operations tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_raw_ingredients"
+      ],
+      "tools_called": [
+        "get_raw_ingredients"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_007",
+      "name": "Customer loyalty triggers repeat customer tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_repeat_customers"
+      ],
+      "tools_called": [
+        "get_repeat_customers"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_008",
+      "name": "Peak hours question triggers time tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_peak_hours"
+      ],
+      "tools_called": [
+        "get_peak_hours"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_009",
+      "name": "Out of scope question uses no tools",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [],
+      "tools_called": [],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_010",
+      "name": "Menu optimisation triggers low performing tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_low_performing_items"
+      ],
+      "tools_called": [
+        "get_low_performing_items"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "RQ_001",
+      "name": "Revenue answer is grounded in data",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "mentions the correct net sales figure (\u20b92,91,829)",
+          "result": "PASS",
+          "reason": "Response explicitly states net sales as \u20b92,91,829"
+        },
+        {
+          "criterion": "distinguishes gross revenue from net sales",
+          "result": "PASS",
+          "reason": "Clearly separates gross revenue (\u20b92,99,848) from net sales after discounts (\u20b92,91,829)"
+        },
+        {
+          "criterion": "does not fabricate any numbers",
+          "result": "PASS",
+          "reason": "All figures appear to be tool-derived data: revenue, orders, AOV, and discount metrics are internally consistent"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response accurately answers the question with correct figures, distinguishes between gross and net revenue, and provides valuable supporting context (order count, AOV, discount rate) without fabrication. Minor verbosity in second paragraph slightly reduces compactness but adds genuine value.",
+      "agent_response": "April 2026 revenue was **\u20b92,99,848** (gross) with **\u20b92,91,829** in net sales after discounts.\n\nThe restaurant processed **489 orders** with an average order value of \u20b9597. Total discounts given were \u20b923,526 (7.85% of revenue).",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_002",
+      "name": "Channel recommendation is actionable",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "gives a clear recommendation (not just describes data)",
+          "result": "PASS",
+          "reason": "Explicitly recommends 'Focus on Zomato' with clear strategic rationale"
+        },
+        {
+          "criterion": "supports recommendation with specific numbers",
+          "result": "PASS",
+          "reason": "Provides revenue figures, order counts, AOV, growth percentages, and month-over-month changes"
+        },
+        {
+          "criterion": "mentions both Swiggy and Zomato",
+          "result": "PASS",
+          "reason": "Analyzes both platforms with comparative metrics and strategic guidance for each"
+        },
+        {
+          "criterion": "includes actionable next steps",
+          "result": "PASS",
+          "reason": "Provides three specific action items including platform negotiations, targeted campaigns, and exclusive offers"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "The response delivers a clear strategic recommendation backed by specific comparative metrics. It correctly identifies Zomato's growth momentum and Swiggy's decline with supporting data, provides nuanced strategic guidance (focus on Zomato while investigating Swiggy's issues), and includes concrete action items. The response is well-structured and appropriately detailed without excessive padding. All criteria are clearly met.",
+      "agent_response": "## **Focus on Zomato \u2014 it's your growth engine**\n\nHere's why:\n\n### **Current Performance (April 2026)**\n- **Zomato**: \u20b91,14,600 revenue (39.27% share) | 198 orders | \u20b9579 AOV\n- **Swiggy**: \u20b91,02,281 revenue (35.05% share) | 156 orders | \u20b9656 AOV\n\nZomato now leads in both revenue and order volume.\n\n### **Growth Trends (March \u2192 April)**\n- **Zomato grew +20%** (\u20b919,070 increase) with 55% more orders\n- **Swiggy declined -13%** (\u20b914,940 drop) with 27% fewer orders\n\n### **Strategic Recommendation**\n\n*...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_003",
+      "name": "Hallucination check \u2014 no invented numbers",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "does not invent numbers that weren't returned by tools",
+          "result": "PASS",
+          "reason": "All numbers are specific and consistent with real data: 277 unique customers, 37 repeat customers, 13.36% calculated rate, individual customer order counts and spend amounts are precise enough to indicate real tool data"
+        },
+        {
+          "criterion": "if it mentions a retention rate, it should come from repeat customer data",
+          "result": "PASS",
+          "reason": "The 13.36% retention rate is explicitly calculated from repeat customer data (37 out of 277 unique customers), with clear methodology shown"
+        },
+        {
+          "criterion": "acknowledges if exact metric is not available",
+          "result": "PASS",
+          "reason": "Response clearly acknowledges data limitation by explaining that online orders only capture Swiggy/Zomato, while POS and walk-in customers aren't tracked by name, noting actual retention may differ"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response demonstrates excellent grounding in real data with specific customer counts, percentages, and individual customer details. Provides complete answer with breakdown, top customers, and actionable insights. Appropriately acknowledges data limitations regarding POS/walk-in tracking. Minor verbosity in the insight section prevents perfect compactness score, but overall this is a high-quality, well-grounded response.",
+      "agent_response": "Based on online order data from April 2026, your **customer retention rate was 13.36%**.\n\nHere's the breakdown:\n\n- **Total unique customers**: 277\n- **Repeat customers** (2+ orders): 37\n- **Repeat rate**: 13.36%\n\n**Top repeat customers:**\n- **Aayush** leads with 8 orders (\u20b91,343 spent)\n- **Mohammad Ameel** and **Preeta Lall** each placed 4 orders\n- 10 customers ordered 3 times\n- 27 customers ordered exactly 2 times\n\n**Key insight**: While 13.36% is a starting point, this relatively low repeat ra...",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_004",
+      "name": "Out of scope handled gracefully",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "does not make up specific revenue predictions",
+          "result": "PASS",
+          "reason": "The agent explicitly states it cannot predict June 2027 revenue and makes no specific predictions"
+        },
+        {
+          "criterion": "clearly states the limitation",
+          "result": "PASS",
+          "reason": "Opens immediately with 'I don't have data for June 2027' and specifies available data is only March-April 2026"
+        },
+        {
+          "criterion": "offers what it CAN help with instead",
+          "result": "PASS",
+          "reason": "Provides three concrete alternative analyses and asks if user wants to pursue growth trend analysis"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Excellent response that honestly acknowledges limitations while being helpful. Correctly identifies the data boundary, explains what would be needed for forecasting, and pivots to actionable alternatives. Minor verbosity in listing forecasting requirements prevents a perfect compactness score, but this context-setting is valuable.",
+      "agent_response": "I don't have data for June 2027. My analysis is based only on sales data from **March and April 2026**.\n\nTo forecast revenue for June 2027, you would need:\n- Historical data spanning a longer period (at least 12 months ideally)\n- Seasonal trend analysis\n- Growth rate assumptions\n- Market condition factors\n- Any planned menu, pricing, or operational changes\n\n**What I can help with instead:**\n\n1. **Analyze your current growth trajectory** \u2014 I can show you how April 2026 performed vs March 2026, wh...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_005",
+      "name": "Operations answer includes business context",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "gives a specific quantity in KG",
+          "result": "PASS",
+          "reason": "Clearly states 17.4 kg as the procurement quantity"
+        },
+        {
+          "criterion": "mentions growth buffer or caveat",
+          "result": "PASS",
+          "reason": "Advises to maintain adequate buffer stock and adjust for weekly/daily ordering based on supply chain"
+        },
+        {
+          "criterion": "connects answer to Galawati Kabab as hero product",
+          "result": "PASS",
+          "reason": "Explicitly mentions Mutton Galawati Kabab as a signature dish and connects to brand identity"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response delivers specific data-grounded quantity (17.4 kg), provides valuable comparative context (3rd highest demand ingredient), includes practical caveats about buffer stock and supply chain adjustments, and successfully connects to business strategy by highlighting Galawati Kabab as a premium brand driver. Minor verbosity in the recommendation section prevents a perfect compactness score, but overall this is an excellent, actionable response.",
+      "agent_response": "Based on April 2026 sales patterns, you should procure **17.4 kg of mutton keema** for your raw ingredient stock.\n\n**Key Context:**\n- Mutton keema is your **3rd highest demand ingredient** after chicken tikka (20.3 kg) and chicken boti (19.3 kg)\n- It's used in popular items like Mutton Galawati Kabab and Mutton Shami Kabab\n- The 17.4 kg represents the monthly procurement baseline \u2014 adjust for weekly/daily ordering based on your supply chain\n\n**Recommendation:** Given that mutton keema is a core ...",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "RQ_006",
+      "name": "Comparison answer covers both months",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "mentions both March and April figures",
+          "result": "PASS",
+          "reason": "Response consistently provides paired figures for March and April across all metrics (e.g., net sales \u20b92,60,672 \u2192 \u20b92,91,829, orders 456 \u2192 489)"
+        },
+        {
+          "criterion": "calculates or mentions growth percentage",
+          "result": "PASS",
+          "reason": "Multiple growth percentages calculated: 11.95% revenue growth, 7.24% order growth, 4.4% AOV increase, 16.82% items growth, 10.74% discount decrease"
+        },
+        {
+          "criterion": "highlights at least one specific insight",
+          "result": "PASS",
+          "reason": "Multiple specific insights provided: channel shift from Swiggy to Zomato leadership, POS business nearly doubling, Biryani category +46% growth, healthier margins from reduced discounting"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response excellently addresses the comparative question with comprehensive data across revenue, orders, channels, and categories. All figures appear grounded in real data with precise calculations. Well-structured with clear headers and actionable insights. Slightly verbose in places (could condense channel bullets) but the depth is appropriate for a month-over-month comparison. No factual errors detected.",
+      "agent_response": "April showed strong growth across the board compared to March:\n\n## Revenue & Orders\n- **Net sales up 11.95%** \u2014 from \u20b92,60,672 to \u20b92,91,829 (+\u20b931,157)\n- **Orders increased 7.24%** \u2014 from 456 to 489 (+33 orders)\n- **Average order value rose 4.4%** \u2014 from \u20b9572 to \u20b9597 (+\u20b925)\n- **Items sold jumped 16.82%** \u2014 from 1,112 to 1,299 items\n\n## Profitability\n- **Discounts decreased by 10.74%** \u2014 excellent margin signal, you're giving away less to drive sales\n- Lower discounting + higher revenue = healthie...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_007",
+      "name": "Answer tone is professional",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "correctness_score": 5,
+      "completeness_score": 5,
+      "compactness_score": 4,
+      "criteria_results": [
+        {
+          "criterion": "response is professional and clear",
+          "result": "PASS",
+          "reason": "Well-structured table format with clear headings, logical organization, and actionable insights presented professionally"
+        },
+        {
+          "criterion": "uses Indian Rupee symbol (\u20b9) for amounts",
+          "result": "PASS",
+          "reason": "Consistently uses \u20b9 symbol for all monetary values throughout the response"
+        },
+        {
+          "criterion": "does not use unnecessary filler phrases",
+          "result": "PARTIAL",
+          "reason": "Mostly concise, but phrases like 'is the clear winner' and 'these items should never run out' add slight editorial flair that could be more direct"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response provides comprehensive, accurate data in a well-structured format. The table shows all key metrics (rank, item, category, quantity, revenue, percentage). Insights are valuable and grounded in the data. Minor stylistic flourishes slightly reduce compactness but don't detract from overall quality. All specific numbers appear to be real data from tools.",
+      "agent_response": "## Top Selling Items by Revenue\n\nYour **Tunday Mutton Galawati Kabab (4 Pcs)** is the clear winner, driving nearly 20% of total sales. Here's your top 10:\n\n| Rank | Item | Category | Qty Sold | Net Revenue | % of Sales |\n|------|------|----------|----------|-------------|------------|\n| 1 | **Tunday Mutton Galawati Kabab- 4 Pcs** | Kababs | 148 | \u20b958,126 | 19.9% |\n| 2 | **Tunday Mutton Kabab Combo** | Combos | 68 | \u20b938,029 | 13.0% |\n| 3 | **Mughlai Paratha** | Breads | 441 | \u20b932,766 | 11.2% |\n| ...",
+      "severity": "low",
+      "error": null
+    }
+  ]
+}

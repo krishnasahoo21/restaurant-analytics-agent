@@ -1,0 +1,265 @@
+{
+  "timestamp": "2026-06-19T12:42:31.723738",
+  "summary": {
+    "total": 27,
+    "passed": 10,
+    "failed": 17,
+    "pass_rate_pct": 37.0,
+    "critical_failures": 3,
+    "hallucinations": 0,
+    "health": "\ud83d\udd34 FAILING",
+    "elapsed_seconds": 3.9,
+    "response_quality": {
+      "tests_run": 0,
+      "avg_correctness": "N/A",
+      "avg_completeness": "N/A",
+      "avg_compactness": "N/A",
+      "avg_overall": "N/A"
+    }
+  },
+  "results": [
+    {
+      "test_id": "DQ_001",
+      "name": "April net sales accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 291829,
+      "actual": 291829,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_002",
+      "name": "April total orders accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 489,
+      "actual": 489,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_003",
+      "name": "April AOV accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 596.79,
+      "actual": 596.79,
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_004",
+      "name": "March net sales accuracy",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 260672,
+      "actual": 260672,
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "DQ_005",
+      "name": "Top item is Tunday Mutton Galawati 4 Pcs",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Tunday Mutton Galawati Kabab- 4 Pcs",
+      "actual": "Tunday Mutton Galawati Kabab- 4 Pcs",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_006",
+      "name": "April top channel is Zomato",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Zomato",
+      "actual": "Zomato",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "DQ_007",
+      "name": "Best day of week is Saturday",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "Saturday",
+      "actual": "Saturday",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_008",
+      "name": "Peak hour window is 19-21",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "19:00 \u2013 21:00",
+      "actual": "19:00 \u2013 21:00",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_009",
+      "name": "Paratha is highest material demand",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": "paratha",
+      "actual": "paratha",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "DQ_010",
+      "name": "Online order platform count",
+      "category": "Data Quality",
+      "passed": true,
+      "expected": 4,
+      "actual": 4,
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_001",
+      "name": "Revenue question triggers KPI tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "critical",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvo45s6yB3gY4yXDsQ'}"
+    },
+    {
+      "test_id": "TS_002",
+      "name": "Channel question triggers channel tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvp7q4GQaLfrN8LZuj'}"
+    },
+    {
+      "test_id": "TS_003",
+      "name": "MoM question triggers compare tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvqD4nD9Ge6wrw5DUp'}"
+    },
+    {
+      "test_id": "TS_004",
+      "name": "Top items question triggers menu tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvr3AjL8i6bMtsQGaE'}"
+    },
+    {
+      "test_id": "TS_005",
+      "name": "Channel strategy triggers multiple tools",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvrir66KmyJ42wmc9v'}"
+    },
+    {
+      "test_id": "TS_006",
+      "name": "Procurement question triggers operations tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvsZSqMf4zU7VGzZWi'}"
+    },
+    {
+      "test_id": "TS_007",
+      "name": "Customer loyalty triggers repeat customer tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvtR3UBV85EawQUQT5'}"
+    },
+    {
+      "test_id": "TS_008",
+      "name": "Peak hours question triggers time tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvuBBiUQvXMeskMbj8'}"
+    },
+    {
+      "test_id": "TS_009",
+      "name": "Out of scope question uses no tools",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvv3GnxqVwBjFVLtgU'}"
+    },
+    {
+      "test_id": "TS_010",
+      "name": "Menu optimisation triggers low performing tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvvus8GLzm9aNT6Ldg'}"
+    },
+    {
+      "test_id": "RQ_001",
+      "name": "Revenue answer is grounded in data",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "critical",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvx5ZaKZbKQC5Rg8Rv'}"
+    },
+    {
+      "test_id": "RQ_002",
+      "name": "Channel recommendation is actionable",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "high",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvy6LCSQdhRhhzqfPa'}"
+    },
+    {
+      "test_id": "RQ_003",
+      "name": "Hallucination check \u2014 no invented numbers",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "critical",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvyyQnEy11GhPj1KFM'}"
+    },
+    {
+      "test_id": "RQ_004",
+      "name": "Out of scope handled gracefully",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "high",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBvzrVgkkDRijrK7TkS'}"
+    },
+    {
+      "test_id": "RQ_005",
+      "name": "Operations answer includes business context",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "medium",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBw1iamJzoKZ3yH1h8y'}"
+    },
+    {
+      "test_id": "RQ_006",
+      "name": "Comparison answer covers both months",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "high",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBw2NGzcN6Lm9hHepoZ'}"
+    },
+    {
+      "test_id": "RQ_007",
+      "name": "Answer tone is professional",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "low",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CcDBw3YiYqU27ai3HtNvd'}"
+    }
+  ]
+}
