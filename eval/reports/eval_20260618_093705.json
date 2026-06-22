@@ -1,0 +1,223 @@
+{
+  "timestamp": "2026-06-18T09:37:05.026501",
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "critical_failures": 0,
+    "hallucinations": 0,
+    "health": "\ud83d\udfe2 HEALTHY",
+    "elapsed_seconds": 111.3
+  },
+  "results": [
+    {
+      "test_id": "RQ_001",
+      "name": "Revenue answer is grounded in data",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "mentions the correct net sales figure (\u20b92,91,829)",
+          "result": "PASS",
+          "reason": "The response explicitly states net sales of \u20b92,91,829"
+        },
+        {
+          "criterion": "distinguishes gross revenue from net sales",
+          "result": "PASS",
+          "reason": "Response clearly differentiates gross revenue (\u20b92,99,848) from net sales (\u20b92,91,829) and explains the discount difference"
+        },
+        {
+          "criterion": "does not fabricate any numbers",
+          "result": "PASS",
+          "reason": "All figures appear to be from real tool data - gross revenue, net sales, order count, AOV, and discount rate are specific metrics that would come from data tools"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "The response excellently meets all criteria by providing the correct net sales figure, clearly distinguishing between gross and net revenue, and providing specific metrics that are consistent with tool-based data retrieval",
+      "agent_response": "April 2026 revenue was **\u20b92,99,848** (gross) with **\u20b92,91,829** in net sales after discounts.\n\nYou processed **489 orders** at an average order value of \u20b9597, with a 7.85% discount rate across the month.",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_002",
+      "name": "Channel recommendation is actionable",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "gives a clear recommendation (not just describes data)",
+          "result": "PASS",
+          "reason": "Opens with clear directive 'Focus on Zomato' and provides definitive bottom line recommendation"
+        },
+        {
+          "criterion": "supports recommendation with specific numbers",
+          "result": "PASS",
+          "reason": "Provides detailed metrics including revenue figures, growth percentages, order volumes, and market share for both platforms"
+        },
+        {
+          "criterion": "mentions both Swiggy and Zomato",
+          "result": "PASS",
+          "reason": "Comprehensively compares both platforms with dedicated sections and comparative table"
+        },
+        {
+          "criterion": "includes actionable next steps",
+          "result": "PASS",
+          "reason": "Provides three numbered actionable recommendations including investing in Zomato promotions and investigating Swiggy decline"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response exceeds all criteria with clear recommendation, comprehensive data support, balanced platform comparison, and specific actionable steps. The analysis is well-structured, includes comparative tables, and provides strategic insights beyond basic data presentation.",
+      "agent_response": "## **Focus on Zomato \u2014 it's your growth engine**\n\n### Here's why:\n\n**Zomato is surging:**\n- **+20% revenue growth** (\u20b995,530 \u2192 \u20b91,14,600 month-over-month)\n- **+55% more orders** (128 \u2192 198 orders)\n- Now your **#1 revenue channel** at 39.27% of total sales\n\n**Swiggy is declining:**\n- **-13% revenue drop** (\u20b91,17,221 \u2192 \u20b91,02,281)\n- **-27% fewer orders** (214 \u2192 156 orders)\n- Fell from #1 to #2 position\n\n### Key Metrics Comparison (April):\n\n| Platform | Revenue | Orders | Avg Order Value | Market Sh...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_003",
+      "name": "Hallucination check \u2014 no invented numbers",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "does not invent numbers that weren't returned by tools",
+          "result": "PASS",
+          "reason": "All numbers (13.36% retention, 277 customers, 37 repeat customers, customer names, order counts, and spending amounts) appear to be specific data points that would have been returned by the analytics tools querying real restaurant data."
+        },
+        {
+          "criterion": "if it mentions a retention rate, it should come from repeat customer data",
+          "result": "PASS",
+          "reason": "The retention rate of 13.36% is explicitly calculated from repeat customer data (37 repeat customers out of 277 total), showing clear methodology based on customers with 2+ orders."
+        },
+        {
+          "criterion": "acknowledges if exact metric is not available",
+          "result": "PASS",
+          "reason": "The response transparently acknowledges data limitations in the note section, explaining that retention data only covers online orders where customer names are tracked, and walk-in/POS customers aren't included."
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "The response excels across all criteria. It provides a specific, well-calculated retention rate with clear breakdown, names actual customers with their order counts and spending (all appearing to be real tool-derived data), offers actionable insights, and transparently acknowledges the scope and limitations of the metric. The response is comprehensive, data-driven, and honest about what the data does and doesn't capture.",
+      "agent_response": "Based on your April 2026 data, your **customer retention rate was 13.36%**.\n\nHere's the breakdown:\n\n- **Total unique customers:** 277\n- **Repeat customers (2+ orders):** 37\n- **Retention rate:** 13.36%\n\n## Key Insights:\n\n**Top repeat customer:** Aayush ordered 8 times and spent \u20b91,343 in April alone \u2014 a loyal customer worth nurturing.\n\n**High-value repeaters:** Several customers like Preeta Lall (\u20b93,340), Ankit (\u20b93,250), and Shalendra singh (\u20b92,640) ordered multiple times with strong spending.\n\n...",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_004",
+      "name": "Out of scope handled gracefully",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "does not make up specific revenue predictions",
+          "result": "PASS",
+          "reason": "Agent explicitly refuses to provide a June 2027 revenue prediction and explains why it cannot make such projections"
+        },
+        {
+          "criterion": "clearly states the limitation",
+          "result": "PASS",
+          "reason": "Agent clearly states upfront that it only has data for March and April 2026 and cannot project to June 2027"
+        },
+        {
+          "criterion": "offers what it CAN help with instead",
+          "result": "PASS",
+          "reason": "Agent provides four specific alternatives it can help with: growth trends, seasonality insights, channel performance, and operational metrics, plus offers to analyze March-to-April performance"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Agent demonstrates excellent handling of an out-of-scope request by clearly stating limitations, explaining why the projection isn't possible, educating the user on what would be needed for such forecasts, and redirecting to valuable analyses it can actually perform with available data",
+      "agent_response": "I don't have data for June 2027. My analysis is limited to **March and April 2026** only.\n\nTo project revenue for June 2027, you would need to:\n\n1. **Establish a longer historical trend** \u2014 ideally 6\u201312 months of past data to identify seasonal patterns, growth rates, and business cycles\n\n2. **Account for planned changes** \u2014 new menu items, marketing campaigns, delivery channel expansion, pricing changes, or operational shifts\n\n3. **Consider external factors** \u2014 local competition, seasonal demand...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_005",
+      "name": "Operations answer includes business context",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "gives a specific quantity in KG",
+          "result": "PASS",
+          "reason": "Provides specific quantity of 17.4 kg with clear unit measurement"
+        },
+        {
+          "criterion": "mentions growth buffer or caveat",
+          "result": "PASS",
+          "reason": "Recommends procuring 18-19 kg (slightly above baseline) to avoid stockouts on peak days"
+        },
+        {
+          "criterion": "connects answer to Galawati Kabab as hero product",
+          "result": "PASS",
+          "reason": "Explicitly mentions Galawati Kabab as signature dish and notes mutton keema is core to brand identity"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response exceeds all criteria by providing specific quantity, practical buffer recommendation, competitive ranking context, and strong connection to the restaurant's signature dish. The answer is actionable, contextual, and business-oriented.",
+      "agent_response": "Based on April 2026 sales data, you should procure **17.4 kg of mutton keema** for raw ingredient procurement.\n\nThis makes mutton keema your **third highest-demand ingredient** after chicken tikka (20.3 kg) and chicken boti (19.3 kg). \n\n### Quick Context\nThis quantity supports dishes like:\n- Galawati Kabab (your signature dish)\n- Mutton Keema Rolls\n- Keema-based curries\n\nSince mutton keema is core to your brand identity, I'd recommend procuring slightly above this baseline (maybe 18-19 kg) to av...",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "RQ_006",
+      "name": "Comparison answer covers both months",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "mentions both March and April figures",
+          "result": "PASS",
+          "reason": "Response clearly presents March and April figures across multiple metrics (Revenue: March \u20b92,60,672 vs April \u20b92,91,829; Orders: March 456 vs April 489, etc.)"
+        },
+        {
+          "criterion": "calculates or mentions growth percentage",
+          "result": "PASS",
+          "reason": "Multiple growth percentages provided: revenue +11.95%, orders +7.24%, AOV +4.4%, items sold +16.82%, and channel-specific growth rates"
+        },
+        {
+          "criterion": "highlights at least one specific insight",
+          "result": "PASS",
+          "reason": "Multiple insights provided including improved margins through reduced discounting, channel shift from Swiggy to Zomato, strong Biryani performance (+45.6%), and POS growth (+56.4%)"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response exceeds all criteria with comprehensive month-over-month comparison, detailed growth metrics across all key dimensions, and actionable business insights about channel performance and product category trends. The analysis is well-structured and provides strategic context beyond basic numbers.",
+      "agent_response": "**April showed solid growth across all key metrics** \u2014 your business is heading in the right direction.\n\n## Overall Performance\n\n- **Revenue:** \u20b92,91,829 (up **11.95%** from March's \u20b92,60,672)\n- **Orders:** 489 (up **7.24%** from 456)\n- **Average Order Value:** \u20b9597 (up **4.4%** from \u20b9572)\n- **Items Sold:** 1,299 (up **16.82%** from 1,112)\n\n## Key Wins\n\n**Better margins:** Discounts dropped by 10.74% (\u20b926,358 \u2192 \u20b923,526) while revenue grew \u2014 you're making more money with less discounting.\n\n**High...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_007",
+      "name": "Answer tone is professional",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "response is professional and clear",
+          "result": "PASS",
+          "reason": "Response is well-structured with clear table format, organized insights, and actionable information presented in a professional manner"
+        },
+        {
+          "criterion": "uses Indian Rupee symbol (\u20b9) for amounts",
+          "result": "PASS",
+          "reason": "All monetary amounts correctly use the \u20b9 symbol (\u20b958,126, \u20b938,029, etc.)"
+        },
+        {
+          "criterion": "does not use unnecessary filler phrases",
+          "result": "PASS",
+          "reason": "Response is concise and data-focused. The insights section adds value rather than filler, and the closing question is appropriate for continuing the conversation"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "The response excellently meets all criteria with a clear, professional presentation using proper currency formatting and no unnecessary filler. The table format, insights, and follow-up question demonstrate high quality without verbosity.",
+      "agent_response": "## Top Selling Items by Revenue\n\nHere are your top 10 best sellers:\n\n| Rank | Item | Category | Qty Sold | Net Revenue | % of Sales |\n|------|------|----------|----------|-------------|------------|\n| 1 | **Tunday Mutton Galawati Kabab - 4 Pcs** | Kababs | 148 | \u20b958,126 | 19.9% |\n| 2 | **Tunday Mutton Kabab Combo** | Combos | 68 | \u20b938,029 | 13.0% |\n| 3 | **Mughlai Paratha** | Breads | 441 | \u20b932,766 | 11.2% |\n| 4 | **Tunday Chicken Galawati Kabab - 4 Pcs** | Kababs | 56 | \u20b919,775 | 6.8% |\n| 5 | *...",
+      "severity": "low",
+      "error": null
+    }
+  ]
+}

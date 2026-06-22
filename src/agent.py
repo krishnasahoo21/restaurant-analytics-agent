@@ -40,7 +40,8 @@ from src.tools import (
     get_peak_hours,
     get_repeat_customers,
     get_material_requirements,
-    get_raw_ingredients
+    get_raw_ingredients,
+    get_item_daily_sales 
 )
 
 load_dotenv()
@@ -150,9 +151,13 @@ TOOL_DEFINITIONS = [
     {
         "name": "get_channel_performance",
         "description": (
-            "Returns sales performance by channel — Swiggy, Zomato, "
-            "POS/TakeAway, Magic Pin. Use this for questions about "
-            "delivery platforms, channel mix or online vs offline sales."
+            "Returns performance metrics for each sales channel "
+            "in a single month — Swiggy, Zomato, POS, Magic Pin. "
+            "Use this when the question is about how a specific "
+            "platform performed, platform revenue share, or channel "
+            "breakdown for ONE month. "
+            "Examples: 'How did Swiggy do?', 'What is Zomato revenue?', "
+            "'Which platform leads?', 'How did Swiggy perform in April?'"
         ),
         "input_schema": {
             "type": "object",
@@ -168,9 +173,13 @@ TOOL_DEFINITIONS = [
     {
         "name": "compare_channels_across_months",
         "description": (
-            "Compares channel performance between March and April. "
-            "Use this for questions about which platforms are growing "
-            "or declining, or channel trends over time."
+            "Compares channel performance ACROSS months — shows "
+            "March vs April side by side for each platform. "
+            "Use this ONLY when the question asks about channel "
+            "trends over time, growth or decline between months. "
+            "Examples: 'Which channel grew the most?', "
+            "'How did platforms change month on month?', "
+            "'Is Swiggy growing or declining over time?'"
         ),
         "input_schema": {
             "type": "object",
@@ -260,6 +269,34 @@ TOOL_DEFINITIONS = [
             "properties": {},
             "required": []
         }
+    },
+    {
+        "name": "get_item_daily_sales",
+        "description": (
+            "Returns day-by-day sales quantity for a specific menu item. "
+            "Use this for questions about daily performance of a specific "
+            "item, how many days an item sold above a certain quantity, "
+            "best/worst days for a specific dish, or item-level daily trends. "
+            "Supports partial name matching — 'Tunday Mutton' will find "
+            "both 2 Pcs and 4 Pcs variants. "
+            "Examples: 'How many days were more than 30 Galawati Kababs sold?', "
+            "'What was the best day for Mughlai Paratha?', "
+            "'How did Chicken Biryani sell day by day?'"
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "item_name": {
+                    "type": "string",
+                    "description": "Full or partial menu item name to search for"
+                },
+                "threshold": {
+                    "type": "integer",
+                    "description": "Count days where quantity exceeded this value (default 0)"
+                }
+            },
+            "required": ["item_name"]
+        }
     }
 ]
 
@@ -282,7 +319,8 @@ TOOL_MAP = {
     "get_peak_hours":                get_peak_hours,
     "get_repeat_customers":          get_repeat_customers,
     "get_material_requirements":     get_material_requirements,
-    "get_raw_ingredients":           get_raw_ingredients
+    "get_raw_ingredients":           get_raw_ingredients,
+    "get_item_daily_sales":          get_item_daily_sales
 }
 
 
@@ -376,6 +414,7 @@ class RestaurantAgent:
                 messages   = self.messages
             )
 
+
             # ── Check stop reason ──────────────────────────────────────────
             if response.stop_reason == "end_turn":
                 # Claude has a final answer — extract and return it
@@ -408,6 +447,7 @@ class RestaurantAgent:
                 for block in response.content:
                     if block.type != "tool_use":
                         continue
+                    # ... execute tool, append to tool_results
 
                     tool_name  = block.name
                     tool_input = block.input
@@ -430,7 +470,19 @@ class RestaurantAgent:
                         "tool_use_id": block.id,
                         "content":     result
                     })
-
+                
+                # ── Safety check — never send empty content ────────────
+                # If stop_reason was tool_use but somehow no tool_use blocks
+                # were found, this prevents sending Claude an invalid
+                # empty-content message which causes a 400 error
+                if not tool_results:
+                    print(f"⚠️  Warning: stop_reason was 'tool_use' but no "
+                            f"tool_use blocks found in response content. "
+                            f"Block types: {[b.type for b in response.content]}")
+                    # Force Claude to retry by ending the loop with a fallback
+                    return ("I encountered an issue processing that question. " 
+                            "Could you please rephrase it?")
+    
                 # ── Feed all tool results back to Claude ───────────────────
                 self.messages.append({
                     "role":    "user",

@@ -1,0 +1,203 @@
+{
+  "timestamp": "2026-06-17T06:38:35.960549",
+  "summary": {
+    "total": 7,
+    "passed": 6,
+    "failed": 1,
+    "pass_rate_pct": 85.7,
+    "critical_failures": 0,
+    "hallucinations": 0,
+    "health": "\ud83d\udfe2 HEALTHY",
+    "elapsed_seconds": 101.8
+  },
+  "results": [
+    {
+      "test_id": "RQ_001",
+      "name": "Revenue answer is grounded in data",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "mentions the correct net sales figure (\u20b92,91,829)",
+          "result": "PASS",
+          "reason": "Response explicitly states net sales of \u20b92,91,829"
+        },
+        {
+          "criterion": "distinguishes gross revenue from net sales",
+          "result": "PASS",
+          "reason": "Response clearly differentiates gross revenue (\u20b92,99,848) from net sales (\u20b92,91,829) and explains the difference is due to discounts"
+        },
+        {
+          "criterion": "does not fabricate any numbers",
+          "result": "PASS",
+          "reason": "All numbers provided (gross revenue, net sales, order count, average order value) are presented as tool-derived data with no indication of fabrication"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response meets all criteria excellently by providing the correct net sales figure, clearly distinguishing between gross and net revenue, and presenting additional supporting metrics that enhance understanding without fabrication",
+      "agent_response": "**April revenue was \u20b92,99,848** (gross) with **\u20b92,91,829 in net sales** after discounts.\n\nThis came from **489 orders** with an average order value of **\u20b9597**.",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_002",
+      "name": "Channel recommendation is actionable",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "gives a clear recommendation (not just describes data)",
+          "result": "PASS",
+          "reason": "Explicitly recommends 'Focus on Zomato' with clear prioritization and strategic rationale"
+        },
+        {
+          "criterion": "supports recommendation with specific numbers",
+          "result": "PASS",
+          "reason": "Provides detailed metrics: revenue figures (\u20b91,14,600 for Zomato, \u20b91,02,281 for Swiggy), order counts (198 vs 156), AOV (\u20b9579 vs \u20b9656), market share percentages, and growth rates (+20% vs -13%)"
+        },
+        {
+          "criterion": "mentions both Swiggy and Zomato",
+          "result": "PASS",
+          "reason": "Analyzes both platforms comprehensively, comparing performance metrics and providing strategic guidance for each"
+        },
+        {
+          "criterion": "includes actionable next steps",
+          "result": "PASS",
+          "reason": "Provides three clear tactical actions: optimize Zomato presence, diagnose Swiggy decline with specific investigation areas, and maintain POS growth"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Exceeds all criteria with a well-structured strategic recommendation backed by comprehensive data analysis. The response moves beyond description to provide clear prioritization, identifies both opportunities and concerns, and delivers specific actionable steps. The inclusion of growth trends and revenue impact projections adds strategic value.",
+      "agent_response": "**Focus on Zomato \u2014 it's your growth engine.**\n\nHere's why:\n\n## Current Performance (April 2026)\n- **Zomato**: \u20b91,14,600 | 198 orders | \u20b9579 AOV | 39% share\n- **Swiggy**: \u20b91,02,281 | 156 orders | \u20b9656 AOV | 35% share\n- **POS**: \u20b974,948 | 114 orders | \u20b9657 AOV | 26% share\n\n## Growth Trends (March \u2192 April)\n- **Zomato**: +20% revenue growth (+70 orders) \ud83d\udfe2\n- **Swiggy**: -13% revenue decline (-58 orders) \ud83d\udd34\n- **POS**: +56% growth (but smaller base) \ud83d\udfe2\n\n## Strategic Recommendation\n\n**Primary Focus: Zoma...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_003",
+      "name": "Hallucination check \u2014 no invented numbers",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "does not invent numbers that weren't returned by tools",
+          "result": "PASS",
+          "reason": "All specific numbers (13.36%, 277 customers, 37 repeats, customer names, order counts, spending amounts) appear to be concrete data points that would come from real tool queries analyzing April transaction data"
+        },
+        {
+          "criterion": "if it mentions a retention rate, it should come from repeat customer data",
+          "result": "PASS",
+          "reason": "The 13.36% rate is explicitly calculated as repeat customers (37) out of total unique customers (277), which is the correct methodology for retention analysis"
+        },
+        {
+          "criterion": "acknowledges if exact metric is not available",
+          "result": "PASS",
+          "reason": "The agent provides a clear metric (13.36% repeat rate) with supporting data, demonstrating the metric was available from the tools. No hedging needed when data exists"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response excellently meets all criteria. Provides specific retention metric (13.36%) derived from real customer data (37 repeat out of 277 total), names actual high-value customers with their order counts and spending, and offers actionable business insights. All numbers are internally consistent and appear to be tool-derived rather than invented.",
+      "agent_response": "Based on the April data, here's your customer retention picture:\n\n**Repeat Customer Rate: 13.36%**\n\nOut of 277 unique customers in April, 37 came back for a second (or more) order \u2014 that's just over 1 in 8 customers returning.\n\n## Key Insights:\n\n**Top Loyal Customer:**\n- **Aayush** ordered 8 times and spent \u20b91,343 \u2014 he's your super fan\n\n**High-Value Repeaters:**\n- **Preeta Lall**: 4 orders, \u20b93,340 spent\n- **Ankit**: 3 orders, \u20b93,250 spent\n- **Mohammad Ameel**: 4 orders, \u20b91,888 spent\n\n**What This...",
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "RQ_004",
+      "name": "Out of scope handled gracefully",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "does not make up specific revenue predictions",
+          "result": "PASS",
+          "reason": "Agent explicitly states it cannot provide June 2027 data and makes no revenue predictions for that period"
+        },
+        {
+          "criterion": "clearly states the limitation",
+          "result": "PASS",
+          "reason": "Agent clearly explains data is limited to March and April 2026 only and explains why future projections cannot be made"
+        },
+        {
+          "criterion": "offers what it CAN help with instead",
+          "result": "PASS",
+          "reason": "Agent provides specific alternative analyses it can perform: March vs April growth trends, best-performing items/channels/days, and business performance insights"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response excellently handles a question outside its data scope. It clearly states limitations, explains what would be needed for such projections, and proactively offers relevant alternative analyses. No hallucinations or made-up data.",
+      "agent_response": "I don't have data for June 2027. My analysis is limited to **March and April 2026** only \u2014 that's the scope of the sales data available to me.\n\nTo project future revenue like June 2027, you would need:\n- Historical data spanning multiple months or years to identify seasonal trends\n- Growth rate assumptions based on marketing plans, expansion, or market conditions\n- External factors like local competition, economic conditions, or menu changes\n\n**What I can help with:**\n- Compare March vs April 20...",
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "RQ_005",
+      "name": "Operations answer includes business context",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "gives a specific quantity in KG",
+          "result": "PASS",
+          "reason": "Clearly states 17.4 kg of mutton keema with additional weekly breakdown of 4.35 kg/week"
+        },
+        {
+          "criterion": "mentions growth buffer or caveat",
+          "result": "PASS",
+          "reason": "Provides multiple caveats including lead time, shelf life (2-3 days), peak days adjustment, and notes to adjust proportionally for specific periods"
+        },
+        {
+          "criterion": "connects answer to Galawati Kabab as hero product",
+          "result": "PASS",
+          "reason": "Explicitly mentions mutton keema is primarily used in Galawati Kababs (both single serves and combos) and identifies them as signature items"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response excellently meets all three criteria with specific quantitative data (17.4 kg), comprehensive operational caveats (lead time, shelf life, peak patterns), and clear product connection to Galawati Kababs as hero items. Goes beyond requirements by providing comparative context (3rd highest demand), weekly breakdown, and practical procurement guidance.",
+      "agent_response": "Based on April 2026 sales data, you should procure **17.4 kg of mutton keema** for raw ingredient stock.\n\nThis makes mutton keema your **3rd highest-demand raw ingredient** after chicken tikka (20.3 kg) and chicken boti (19.3 kg). \n\n### Key Context:\n- Mutton keema is primarily used in your Galawati Kababs (both single serves and combos), which are signature items\n- This quantity accounts for actual sales patterns, so factor in:\n  - **Lead time** from your supplier\n  - **Shelf life** of fresh mut...",
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "RQ_006",
+      "name": "Comparison answer covers both months",
+      "category": "Response Quality",
+      "passed": false,
+      "overall_score": "N/A",
+      "severity": "high",
+      "error": "BadRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'messages.2: user messages must have non-empty content'}, 'request_id': 'req_011Cc8vYH5A3sjPMqqEJxW7Q'}"
+    },
+    {
+      "test_id": "RQ_007",
+      "name": "Answer tone is professional",
+      "category": "Response Quality",
+      "passed": true,
+      "overall_score": 5,
+      "criteria_results": [
+        {
+          "criterion": "response is professional and clear",
+          "result": "PASS",
+          "reason": "Response is well-structured with clear headings, formatted table, and organized insights section"
+        },
+        {
+          "criterion": "uses Indian Rupee symbol (\u20b9) for amounts",
+          "result": "PASS",
+          "reason": "All monetary values consistently use the \u20b9 symbol (\u20b958,126, \u20b938,029, etc.)"
+        },
+        {
+          "criterion": "does not use unnecessary filler phrases",
+          "result": "PASS",
+          "reason": "Response is concise and data-focused without excessive filler language"
+        }
+      ],
+      "hallucination": false,
+      "reasoning": "Response excellently meets all criteria with professional formatting, correct currency symbols throughout, and clear insights without unnecessary verbosity. The table format and actionable insights add significant value.",
+      "agent_response": "Your **Tunday Mutton Galawati Kabab (4 Pcs)** is the clear winner, generating \u20b958,126 in net revenue \u2014 nearly 20% of your total sales.\n\n## Top 10 Items by Revenue\n\n| Rank | Item | Category | Qty Sold | Net Revenue | % of Sales |\n|------|------|----------|----------|-------------|------------|\n| 1 | Tunday Mutton Galawati Kabab - 4 Pcs | Kababs | 148 | \u20b958,126 | 19.9% |\n| 2 | Tunday Mutton Kabab Combo | Combos | 68 | \u20b938,029 | 13.0% |\n| 3 | Mughlai Paratha | Breads | 441 | \u20b932,766 | 11.2% |\n| 4 |...",
+      "severity": "low",
+      "error": null
+    }
+  ]
+}

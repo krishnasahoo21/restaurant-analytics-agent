@@ -1,0 +1,95 @@
+{
+  "timestamp": "2026-06-19T09:17:26.330153",
+  "summary": {
+    "total": 10,
+    "passed": 0,
+    "failed": 10,
+    "pass_rate_pct": 0.0,
+    "critical_failures": 1,
+    "hallucinations": 0,
+    "health": "\ud83d\udd34 FAILING",
+    "elapsed_seconds": 93.6
+  },
+  "results": [
+    {
+      "test_id": "TS_001",
+      "name": "Revenue question triggers KPI tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "critical",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_002",
+      "name": "Channel question triggers channel tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_003",
+      "name": "MoM question triggers compare tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_004",
+      "name": "Top items question triggers menu tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_005",
+      "name": "Channel strategy triggers multiple tools",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_006",
+      "name": "Procurement question triggers operations tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "high",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_007",
+      "name": "Customer loyalty triggers repeat customer tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_008",
+      "name": "Peak hours question triggers time tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_009",
+      "name": "Out of scope question uses no tools",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "name 'forbidden_used' is not defined"
+    },
+    {
+      "test_id": "TS_010",
+      "name": "Menu optimisation triggers low performing tool",
+      "category": "Tool Selection",
+      "passed": false,
+      "severity": "medium",
+      "error": "name 'forbidden_used' is not defined"
+    }
+  ]
+}

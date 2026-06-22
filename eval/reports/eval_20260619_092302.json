@@ -1,0 +1,174 @@
+{
+  "timestamp": "2026-06-19T09:23:02.175242",
+  "summary": {
+    "total": 10,
+    "passed": 10,
+    "failed": 0,
+    "pass_rate_pct": 100.0,
+    "critical_failures": 0,
+    "hallucinations": 0,
+    "health": "\ud83d\udfe2 HEALTHY",
+    "elapsed_seconds": 95.7
+  },
+  "results": [
+    {
+      "test_id": "TS_001",
+      "name": "Revenue question triggers KPI tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_monthly_kpis"
+      ],
+      "tools_called": [
+        "get_monthly_kpis"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "critical",
+      "error": null
+    },
+    {
+      "test_id": "TS_002",
+      "name": "Channel question triggers channel tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_channels_across_months",
+        "get_channel_performance"
+      ],
+      "tools_called": [
+        "compare_channels_across_months"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_003",
+      "name": "MoM question triggers compare tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_months"
+      ],
+      "tools_called": [
+        "compare_months"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_004",
+      "name": "Top items question triggers menu tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_top_items"
+      ],
+      "tools_called": [
+        "get_top_items"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_005",
+      "name": "Channel strategy triggers multiple tools",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "compare_channels_across_months",
+        "get_channel_performance"
+      ],
+      "tools_called": [
+        "get_channel_performance",
+        "compare_channels_across_months"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_006",
+      "name": "Procurement question triggers operations tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_raw_ingredients"
+      ],
+      "tools_called": [
+        "get_raw_ingredients"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "high",
+      "error": null
+    },
+    {
+      "test_id": "TS_007",
+      "name": "Customer loyalty triggers repeat customer tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_repeat_customers"
+      ],
+      "tools_called": [
+        "get_repeat_customers"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_008",
+      "name": "Peak hours question triggers time tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_peak_hours"
+      ],
+      "tools_called": [
+        "get_peak_hours"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_009",
+      "name": "Out of scope question uses no tools",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [],
+      "tools_called": [],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    },
+    {
+      "test_id": "TS_010",
+      "name": "Menu optimisation triggers low performing tool",
+      "category": "Tool Selection",
+      "passed": true,
+      "expected_tools": [
+        "get_low_performing_items"
+      ],
+      "tools_called": [
+        "get_low_performing_items"
+      ],
+      "missing_tools": [],
+      "forbidden_used": [],
+      "severity": "medium",
+      "error": null
+    }
+  ]
+}

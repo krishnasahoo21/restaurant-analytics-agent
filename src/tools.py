@@ -779,3 +779,97 @@ def get_raw_ingredients() -> dict:
         "total_ingredients": len(ingredient_list),
         "highest_demand":   ingredient_list[0]["ingredient"] if ingredient_list else None
     }
+
+
+def get_item_daily_sales(
+    item_name: str,
+    threshold: int = 0
+) -> dict:
+    """
+    Returns day-by-day sales quantity for a specific menu item.
+    Useful for questions about how many days an item sold above
+    a certain quantity, or daily performance of a specific item.
+
+    Args:
+        item_name:  full or partial item name to search for
+        threshold:  optional — count days where qty exceeded this
+                    value (default 0 = return all days)
+
+    Returns:
+        dict with keys:
+        - item_name: matched item name
+        - daily: list of {date, day_of_week, quantity, revenue}
+        - days_above_threshold: count of days exceeding threshold
+        - peak_day: highest quantity single day
+        - zero_days: days with no sales
+        - total_qty: sum across all days
+    """
+    err = _check_data()
+    if err:
+        return err
+
+    df = _data.get("item_wise_sales", pd.DataFrame())
+    if df.empty:
+        return {"error": "Item wise sales data not available"}
+
+    # ── Flexible item name matching ────────────────────────────
+    # Search for partial match — handles "Tunday Mutton" finding
+    # both 2 Pcs and 4 Pcs variants
+    search_term = item_name.strip().lower()
+    mask = df["item_name"].str.lower().str.contains(
+        search_term, regex=False
+    )
+    matched = df[mask]
+
+    if matched.empty:
+        # Show available items to help user rephrase
+        available = df["item_name"].unique().tolist()
+        return {
+            "error": f"No item found matching '{item_name}'",
+            "available_items": available
+        }
+
+    matched_names = matched["item_name"].unique().tolist()
+
+    # ── Aggregate by date across all matched variants ──────────
+    daily_agg = (
+        matched.groupby(["date", "day_of_week"])
+        .agg(
+            quantity = ("quantity", "sum"),
+            revenue  = ("revenue",  "sum")
+        )
+        .reset_index()
+        .sort_values("date")
+    )
+
+    daily_list = [
+        {
+            "date":        row["date"].strftime("%d-%b-%Y"),
+            "day_of_week": row["day_of_week"],
+            "quantity":    int(row["quantity"]),
+            "revenue":     round(row["revenue"], 2)
+        }
+        for _, row in daily_agg.iterrows()
+    ]
+
+    # ── Calculate threshold days ───────────────────────────────
+    days_above = [
+        d for d in daily_list
+        if d["quantity"] > threshold
+    ]
+
+    peak = max(daily_list, key=lambda x: x["quantity"])
+    zero = [d for d in daily_list if d["quantity"] == 0]
+
+    return {
+        "search_term":          item_name,
+        "matched_items":        matched_names,
+        "threshold":            threshold,
+        "daily":                daily_list,
+        "days_above_threshold": len(days_above),
+        "days_above_details":   days_above,
+        "peak_day":             peak,
+        "zero_days":            [d["date"] for d in zero],
+        "total_qty":            sum(d["quantity"] for d in daily_list),
+        "total_days_analysed":  len(daily_list)
+    }
