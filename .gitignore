@@ -226,3 +226,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 PROJECT_JOURNAL.md
+eval/reports/
+eval/reports/
