@@ -1,0 +1,38 @@
+s3://restaurant-agent-data-prod/clients/tunday-kababi/
+│
+├── raw/
+│   ├── daily-sales/
+│   ├── menu-mix/
+│   ├── item-wise/
+│   └── online-orders/
+│
+├── reference/                   
+│   └── item_master.xlsx
+│
+├── processed/
+└── ml-artifacts/
+
+
+item_master.xlsx — it's a reference/lookup table: item name, shelf life, base item name, combo flag, breakdown. It doesn't change month to month 
+the way sales reports do. It's closer to a dimension table in data warehouse terms, while the other 4 are fact tables (transactions over time).
+
+Fact tables (changes every month):
+  daily-sales/, menu-mix/, item-wise/, online-orders/
+  → one file per month, append-only over time
+
+Dimension table (relatively static):
+  item_master.xlsx
+  → describes the menu itself, updated only when 
+    menu items are added/removed/renamed
+
+
+1. filename_parser.py     — extracts year/month/report_type from any filename
+2. parsers/menu_mix.py    — handles v1 xlsx, v2 xlsx, AND v3 csv  
+3. parsers/daily_sales.py — handles v1 and v2 xlsx formats
+4. parsers/item_wise.py   — adapted from your existing data_loader.py
+5. parsers/online_orders.py — adapted from your existing data_loader.py
+6. lambda_function.py     — ties it together, triggered by S3 events
+7. Deploy to AWS Lambda + attach pandas Layer
+8. Test: upload one file, watch Parquet appear in processed/
+9. Athena setup
+10.Agent on API Gateway
