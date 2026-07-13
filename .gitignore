@@ -227,4 +227,31 @@ __marimo__/
 .streamlit/secrets.toml
 PROJECT_JOURNAL.md
 eval/reports/
+<<<<<<< HEAD
 eval/reports/
+=======
+>>>>>>> tunday
+
+# Mac hidden files
+.DS_Store
+**/.DS_Store
+
+# Build artifacts
+deployment.zip
+
+# Data subfolders (client Excel files)
+data/Daily Sales report detailed/
+data/Enterprise Menu mix/
+data/Item wise enterprise reports/
+data/Online order report/
+data/upload_to_s3.sh
+
+# Temp files
+~$*
+*.tmp
+working.txt
+aws-deployment.txt
+
+# Retrigger scripts with hardcoded client paths
+retrigger_*.py
+process_all.sh

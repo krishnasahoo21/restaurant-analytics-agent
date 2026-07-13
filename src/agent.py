@@ -366,7 +366,14 @@ class RestaurantAgent:
         response = agent.chat("How did that compare to March?")
     """
 
-    def __init__(self, data: dict):
+    def __init__(
+        self,
+        data: dict,
+        # ── Bench overrides (all optional) ────────────────────────
+        model:         str  = "claude-sonnet-4-5",
+        system_prompt: str  = None,          # None = use SYSTEM_PROMPT from prompts.py
+        tool_definitions: list = None,       # None = use TOOL_DEFINITIONS from agent.py
+    ):
         """
         Initialise the agent with loaded data.
 
@@ -376,6 +383,13 @@ class RestaurantAgent:
         self.client   = Anthropic()
         self.messages = []          # conversation history
         self.data     = data
+
+
+        # Store overrides — bench passes these in, production uses defaults
+        self._model            = model
+        self._system_prompt    = system_prompt or SYSTEM_PROMPT
+        self._tool_definitions = tool_definitions or TOOL_DEFINITIONS
+
 
         # Initialise tools with data
         initialise_tools(data)
@@ -407,10 +421,10 @@ class RestaurantAgent:
 
             # ── Call Claude ────────────────────────────────────────────────
             response = self.client.messages.create(
-                model      = "claude-sonnet-4-5",
+                model      = self._model, 
                 max_tokens = 4096,
-                system     = SYSTEM_PROMPT,
-                tools      = TOOL_DEFINITIONS,
+                system     = self._system_prompt,  
+                tools      = self._tool_definitions,
                 messages   = self.messages
             )
 
